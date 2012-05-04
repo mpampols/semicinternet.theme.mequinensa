@@ -1,0 +1,6 @@
+Changelog
+=========
+
+1.0
+---
+- First release, this is a fork of semicinternet.theme.cambrils theme

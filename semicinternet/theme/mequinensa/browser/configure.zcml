@@ -1,0 +1,104 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="semicinternet.theme.mequinensa">
+
+  <include package="plone.app.registry" />
+
+  <browser:page
+      for="*"
+      name="hp_view"
+      class=".homepage.Homepage"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <interface
+      interface=".interfaces.IThemeSpecific"
+      type="zope.publisher.interfaces.browser.IBrowserSkinType"
+      name="SEMIC Internet Theme Mequinensa"
+      />
+
+  <!-- Viewlets registration -->
+
+  <!-- Zope 3 browser resources -->
+
+  <browser:resourceDirectory
+      name="mequinensa.images"
+      directory="images"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+  <browser:resourceDirectory
+      name="mequinensa.stylesheets"
+      directory="stylesheets"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+  <browser:viewlet
+      name="plone.site_actions"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class="plone.app.layout.viewlets.common.SiteActionsViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+       />
+
+  <browser:viewlet
+      name=".theme.mequinensa.global_sections"
+      manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+      class=".viewlets.GlobalSectionsViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name=".theme.mequinensa.social_pages"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.SocialPagesViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name=".theme.mequinensa.dropdown_menu"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.DropdownMenuViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name=".theme.mequinensa.footer"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      template="templates/footer.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name=".theme.mequinensa.colophon"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      template="templates/colophon.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:viewlet
+      name="plone.searchbox"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      template="templates/searchbox.pt"
+      layer=".interfaces.IThemeSpecific"
+      class="plone.app.layout.viewlets.common.SearchBoxViewlet"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="mequinensa-settings"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.MequinensaSettingsControlPanel"
+      permission="cmf.ManagePortal"
+      />
+
+  <!-- -*- extra stuff goes here -*- -->
+
+</configure>

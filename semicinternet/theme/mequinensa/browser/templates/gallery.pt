@@ -1,0 +1,25 @@
+<dl class="portlet portletGallery"
+    i18n:domain="semicinternet.theme.mequinensa">
+  <dt class="portletHeader"
+      tal:define="hasImages view/gallery_items|nothing"
+      tal:condition="hasImages">
+    <span i18n:translate="title_image_gallery">Image gallery</span>
+  </dt>
+  <dd>
+    <tal:items tal:define="plone_view context/@@plone;
+                           getIcon nocall:plone_view/getIcon;
+                           normalizeString nocall:plone_view/normalizeString;
+                           toLocalizedTime nocall:plone_view/toLocalizedTime;"
+               tal:repeat="obj view/gallery_items">
+      <a href="#"
+         type="image/jpeg"
+         tal:attributes="href string:${obj/getURL};"
+         tal:condition="obj"
+         class="portletGalleryImage">
+        <img width="60"
+             tal:attributes="src string:${obj/getURL}/image_thumb;
+                             alt string:${obj/Title};" />
+      </a>
+    </tal:items>
+  </dd>
+</dl>

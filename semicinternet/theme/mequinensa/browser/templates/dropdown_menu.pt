@@ -1,0 +1,75 @@
+<div id="dropdown-menu" metal:define-macro="dropdown_menu"
+     tal:define="hp_view context/@@hp_view"
+     i18n:domain="semicinternet.theme.mequinensa">
+    <ul id="portal-globalnav"
+        class="firstlevel"
+        tal:define="first_level python:hp_view.getDropdownMenu();
+                    max_levels python:hp_view.getDropDownMenuLevels() or 0">
+        <li tal:on-error="nothing">
+            tal:define="idioma python:context.getLanguage()">
+            <a href="#"
+               tal:attributes="href string:${context/portal_url}/inici?set_language=ca"
+               tal:condition="python:idioma == 'ca'"
+               i18n:translate="home">Inici</a>
+            <a href="#"
+               tal:attributes="href string:${context/portal_url}/inici-es?set_language=es"
+               tal:condition="python:idioma == 'es'"
+               i18n:translate="home">Inicio</a>
+            <a href="#"
+               tal:attributes="href string:${context/portal_url}/inici-en?set_language=en"
+               tal:condition="python:idioma == 'en'"
+               i18n:translate="home">Home</a>
+            <a href="#"
+               tal:attributes="href string:${context/portal_url}/inici-en-us?set_language=en_us"
+               tal:condition="python:idioma == 'en-us'"
+               i18n:translate="home">Home</a>
+            <a href="#"
+               tal:attributes="href string:${context/portal_url}/inici-fr?set_language=fr"
+               tal:condition="python:idioma == 'fr'">Accueil</a>
+            <a href="#"
+               tal:attributes="href string:${context/portal_url}/inici-nl?set_language=nl"
+               tal:condition="python:idioma == 'nl'">Voorpagina</a>
+            <a href="#"
+               tal:attributes="href string:${context/portal_url}/inici-de?set_language=de"
+               tal:condition="python:idioma == 'de'">Anfang</a>
+        </li>
+
+        <div style="display:none" tal:content="python:context.getLanguage()" tal:on-error="nothing"></div>
+        <div style="display:none" tal:content="python:request['set_language']" tal:on-error="nothing"></div>
+
+        <li tal:repeat="first_element first_level"
+            tal:attributes="class first_element/id|nothing">
+	    <a href="#" 
+	       class="menutitle" 
+	       tal:content="first_element/Title"
+	       tal:attributes="href python:first_element.getObject().absolute_url()">Option 1</a>
+	    <ul tal:define="second_level python:int(max_levels) > 0 and hp_view.getDropdownMenu(actual_base_path=first_element.getPath())"
+                tal:condition="second_level"
+            class="secondlevel hidden">
+                <li tal:repeat="second_element second_level">
+                  <a href="#"
+                     tal:content="second_element/Title"
+                     tal:define="has_third_level python:max_levels > 0 and hp_view.getDropdownMenu(actual_base_path=second_element.getPath())"
+                     tal:condition="has_third_level"
+		             tal:attributes="href  python:second_element.getObject().absolute_url();
+                                     class python:int(max_levels) > 1 and 'arrow' or 'no-arrow'"
+                     class="arrow">Option 1.2</a>
+                  <a href="#"
+                     tal:content="second_element/Title"
+                     tal:condition="not:has_third_level"
+		             tal:attributes="href python:second_element.getObject().absolute_url()"
+                     tal:define="has_third_level python:hp_view.getDropdownMenu(actual_base_path=second_element.getPath())">Option 1.2</a>
+                    <ul tal:condition="third_level"
+                        tal:define="third_level python:int(max_levels) > 1 and hp_view.getDropdownMenu(actual_base_path=second_element.getPath())"
+                        class="thirdlevel hidden">
+                        <li tal:repeat="third_element third_level">
+                            <a href="#"
+			                   tal:attributes="href python:third_element.getObject().absolute_url()"
+                               tal:content="third_element/Title">Option 1.2.3</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

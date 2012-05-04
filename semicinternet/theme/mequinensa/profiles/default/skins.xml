@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+        default_skin="SEMIC Internet Theme Mequinensa">
+ 
+ <!-- -*- extra stuff goes here -*- -->
+ 
+ <object name="mequinensa_images"
+         meta_type="Filesystem Directory View"
+         directory="semicinternet.theme.mequinensa:skins/mequinensa_images"/>
+
+ <object name="mequinensa_templates"
+         meta_type="Filesystem Directory View"
+         directory="semicinternet.theme.mequinensa:skins/mequinensa_templates"/>
+
+ <object name="mequinensa_styles"
+         meta_type="Filesystem Directory View"
+         directory="semicinternet.theme.mequinensa:skins/mequinensa_styles"/>
+
+ <object name="mequinensa_javascripts"
+         meta_type="Filesystem Directory View"
+         directory="semicinternet.theme.mequinensa:skins/mequinensa_javascripts"/>
+
+ <skin-path name="SEMIC Internet Theme Mequinensa" based-on="Sunburst Theme">
+  <!-- -*- extra layer stuff goes here -*- -->
+  <layer name="mequinensa_images" insert-after="custom"/>
+  <layer name="mequinensa_templates" insert-after="custom"/>
+  <layer name="mequinensa_styles" insert-after="custom"/>
+  <layer name="mequinensa_javascripts" insert-after="custom"/>
+ </skin-path>
+
+</object>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="semicinternet.theme.mequinensa"
+    purge="False">
+
+    <configlet
+        title="Mequinensa Theme"
+        action_id="Mequinensa Theme"
+        appId="semicinternet.theme.mequinensa"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@mequinensa-settings"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
+</object>

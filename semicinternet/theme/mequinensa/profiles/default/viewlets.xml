@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object>
+  <order manager="plone.portalfooter" skinname="SEMIC Internet Theme Mequinensa">
+    <viewlet name="mequinensa.footer" />
+    <viewlet name="mequinensa.colophon" />
+  </order>
+  <order manager="plone.portalheader" skinname="SEMIC Internet Theme Mequinensa">
+    <viewlet name="mequinensa.dropdown_menu" />
+  </order>
+  <hidden manager="plone.global_sections" skinname="SEMIC Internet Theme Mequinensa">
+    <viewlet name="plone.global_sections" />
+  </hidden>
+  <hidden manager="plone.portalheader" skinname="SEMIC Internet Theme Mequinensa">
+    <viewlet name="plone.site_actions"/>
+    <viewlet name="plone.global_sections"/>
+  </hidden>
+  <hidden manager="plone.portalfooter" skinname="SEMIC Internet Theme Mequinensa">
+    <viewlet name="plone.footer"/>
+    <viewlet name="plone.colophon"/>
+  </hidden>
+</object>

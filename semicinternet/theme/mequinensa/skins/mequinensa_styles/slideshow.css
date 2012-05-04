@@ -1,0 +1,8 @@
+#main{width:960px;position:relative;}
+.navi {cursor:pointer;height:15px;}
+.navi a {padding: 7px 10px;font-size: 26px;font-weight: bold;border: 1px solid white;outline:none;background-color:#bbd406;display:block;float:left;height:22px;margin:3px;width:14px;color:#fff !important;}
+.navi a.active {background-color:#594fbf;box-shadow:0 1px 1px 1px #252525 inset;color:#fff}
+.navi a:hover {background-color:#594fbf;box-shadow:0 1px 1px 1px #252525 inset;color:#fff}
+.scrollable {overflow:hidden;position:relative;width:960px;height:276px}
+.item {cursor:pointer;float:left;width:960px;}
+.scrollable .items {clear:both;position:absolute;width:20000em;}

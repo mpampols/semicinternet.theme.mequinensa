@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="semicinternet.theme.mequinensa">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="SEMIC Internet Theme Mequinensa"
+      directory="profiles/default"
+      description='Extension profile for the "SEMIC Internet Theme Mequinensa" Plone theme.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall Mequinensa Theme"
+      directory="profiles/uninstall"
+      description='Uninstallation profile for Mequinensa Plone theme.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="semicinternet.theme.mequinensa.various"
+      title="SEMIC Internet Theme Mequinensa: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="semicinternet.theme.mequinensa.setuphandlers.setupVarious">
+    <depends name="skins"/>
+  </genericsetup:importStep>
+
+</configure>
